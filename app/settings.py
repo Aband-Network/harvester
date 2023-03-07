@@ -18,10 +18,10 @@
 import os
 
 DB_NAME = os.environ.get("DB_NAME", "polkascan")
-DB_HOST = os.environ.get("DB_HOST", "mysql")
+DB_HOST = os.environ.get("DB_HOST", "localhost")
 DB_PORT = os.environ.get("DB_PORT", 3306)
-DB_USERNAME = os.environ.get("DB_USERNAME", "root")
-DB_PASSWORD = os.environ.get("DB_PASSWORD", "root")
+DB_USERNAME = os.environ.get("DB_USERNAME", "wjy")
+DB_PASSWORD = os.environ.get("DB_PASSWORD", "wjy")
 
 DB_CONNECTION = os.environ.get("DB_CONNECTION", "mysql+pymysql://{}:{}@{}:{}/{}?charset=utf8mb4".format(
     DB_USERNAME, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME
@@ -51,7 +51,7 @@ STORAGE_KEY_EVENTS_LEGACY = bytes.fromhex('26aa394eea5630e07c48ae0c9558cef780d41
 if os.environ.get("INSTALLED_ETL_DATABASES"):
     INSTALLED_ETL_DATABASES = os.environ.get("INSTALLED_ETL_DATABASES").split(',')
 else:
-    INSTALLED_ETL_DATABASES = []
+    INSTALLED_ETL_DATABASES = ['explorer_api']
 
 if os.environ.get("BLOCK_START") is not None:
     BLOCK_START = int(os.environ.get("BLOCK_START"))

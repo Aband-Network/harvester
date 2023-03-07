@@ -514,7 +514,7 @@ class RetrieveRuntimeState(Job):
                     self.substrate.metadata = metadata
 
                     if self.substrate.implements_scaleinfo():
-                        self.substrate.reload_type_registry()
+                        self.substrate.reload_type_registry(use_remote_preset=False)
                         self.substrate.runtime_config.add_portable_registry(metadata)
 
                     self.store_runtime(metadata, node_runtime, block_hash)
